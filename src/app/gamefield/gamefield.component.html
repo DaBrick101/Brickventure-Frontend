@@ -1,0 +1,25 @@
+  <!-- <table class="mx-auto">
+    <tr *ngFor="let room of appRooms">
+      <ng-container *ngFor="let room2 of room">
+        <td class="border border-primary">{{room2.X}}</td>
+      </ng-container>
+    </tr>
+  </table> -->
+
+<!-- <p *ngFor="let room of appRooms">{{room.X}}</p> -->
+<table class="mx-auto">
+  <ng-container *ngFor="let room of appRooms; let i=index">
+    <ng-container *ngIf="i < 20">
+      <tr>
+        <td>
+          {{room.X}}
+        </td> 
+      </tr>
+    </ng-container>
+      <td>
+        {{room.X}}
+      </td>
+  </ng-container>
+</table>
+
+

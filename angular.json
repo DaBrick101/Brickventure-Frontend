@@ -25,6 +25,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -68,7 +69,7 @@
           },
           "defaultConfiguration": "development"
         },
-        "extract-i18n": {
+        "extract-i18n": { 
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "Brickventure:build"
@@ -83,7 +84,7 @@
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
-              "src/favicon.ico",
+              "src/favicon.ico", 
               "src/assets"
             ],
             "styles": [
