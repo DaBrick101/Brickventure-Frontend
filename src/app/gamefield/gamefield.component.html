@@ -5,9 +5,9 @@
       </ng-container>
     </tr>
   </table> -->
-
+  <app-room *ngFor="let room of appRooms" [room] = "room"></app-room>
 <!-- <p *ngFor="let room of appRooms">{{room.X}}</p> -->
-<table class="mx-auto">
+<!-- <table class="mx-auto">
   <ng-container *ngFor="let room of appRooms; let i=index">
     <ng-container *ngIf="i < 20">
       <tr>
@@ -20,6 +20,6 @@
         {{room.X}}
       </td>
   </ng-container>
-</table>
+</table> -->
 
 

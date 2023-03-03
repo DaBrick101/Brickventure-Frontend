@@ -16,15 +16,15 @@ export class ApiService{
     currentAppRoom = this.appRoomsObs.asObservable();
 
     loadRooms(){
-
+        //this.http.get('https://localhost:7149/api/brickventureAPI/CreatePlayer')
         this.http.get('https://localhost:7149/api/brickventureAPI/GetWorldGameField')
         .subscribe((response: any[])=>{
 
             this.getRooms = response;
           
             this.getRooms.forEach(room => {                           
-                this.appRooms.push(                    
-                    new Room(                        
+                this.appRooms.push(
+                    new Room(
                         room.roomType,
                         this.partecipants,
                         room.wasVisitedByPlayer,
@@ -35,6 +35,7 @@ export class ApiService{
                 )
             });
         });
+        
         this.appRoomsObs.next(this.appRooms);
     }
 
