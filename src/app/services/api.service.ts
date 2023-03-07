@@ -11,32 +11,32 @@ export class ApiService{
 
     getRooms: any[] = [];
     appRooms: Room[] = [];
-    partecipants: number[] = [];
     private appRoomsObs = new BehaviorSubject<Room[]>([]);
     currentAppRoom = this.appRoomsObs.asObservable();
 
-    loadRooms(){
+    loadRooms() {
         //this.http.get('https://localhost:7149/api/brickventureAPI/CreatePlayer')
         this.http.get('https://localhost:7149/api/brickventureAPI/GetWorldGameField')
-        .subscribe((response: any[])=>{
+
+        .subscribe((response: any[])=> {
 
             this.getRooms = response;
-          
+            this.appRooms = [];
             this.getRooms.forEach(room => {                           
-                this.appRooms.push(
-                    new Room(
-                        room.roomType,
-                        this.partecipants,
-                        room.wasVisitedByPlayer,
-                        room.x,
-                        room.y,
-                        room.z
-                    )
-                )
+                // this.appRooms.push(
+                //     new Room(
+                //         room.roomType,
+                //         this.partecipants,
+                //         room.wasVisitedByPlayer,
+                //         room.x,
+                //         room.y,
+                //         room.z
+                //     )
+                // )
+                this.appRooms.push(room);
             });
+            this.appRoomsObs.next(this.appRooms);
         });
-        
-        this.appRoomsObs.next(this.appRooms);
     }
 
     public provideRooms(){
