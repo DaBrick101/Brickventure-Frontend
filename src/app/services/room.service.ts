@@ -28,7 +28,6 @@ export class RoomService {
       this.columnIndex = 0;
 
       appRooms.forEach(room => {
-        console.log(room);
         this.roomList[room.y][room.x].Assign(room);
       })
     })

@@ -1,6 +1,8 @@
+import { Partecipant } from "./partecipant.model";
+
 export class Room{
     public roomType : number;
-    public partecipants : number[];//change number to Partecipants Model
+    public partecipants : Partecipant[];//change number to Partecipants Model
     public WasVisitedByPlayer: boolean;
     public x : number = 0;
     public y : number = 0;

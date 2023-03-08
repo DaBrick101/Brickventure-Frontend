@@ -1,11 +1,12 @@
 
-<div style="width: 200px;">
+<div style="width: 100px;">
     <p class>Room: {{room.x}}|{{room.y}}</p>
     <picture>
-        <img src={{imageUrl}}/>
+        <img src={{imageUrl}} class="rounded mx-auto d-block"/>
     </picture>
     
-    <br>{{room.partecipants.length}}
+    <br>{{room.partecipants.length}} | {{room.roomType}}
+   
     
 </div>
    
