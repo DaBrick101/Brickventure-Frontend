@@ -18,38 +18,29 @@ export class RoomComponent implements OnInit{
   imageUrl: string;
   counterConstructor: number;
   counterOninit: number;
-  currentPartecipant: Partecipant;
+  player: Partecipant;
+  playerInRoom: boolean;
+  enemyInRoom: boolean;
 
   constructor(private roomService : RoomService){
     
-    console.log("I am the Constructor" + " " +this.counterConstructor);
     this.counterConstructor++;
   }
   ngOnInit(): void {
-    console.log("I am the OnInit" + " " +  this.counterOninit);
     this.counterOninit++;
-
     this.room = this.roomService.getRoom(this.X, this.Y);
-    this.setRoom(this.room)
-   
+    this.setRoom(this.room);
+    this.subscribeToRoomsChanged();
   }
-  
-  setRoom(room: Room) {
-    //TODO The First Room has to be checked after displaying
 
+  public setRoom(room: Room) {
+    this.playerInRoom = false;
+    this.enemyInRoom = false;
+ 
     this.room = room;
-    console.log("Room now gets checked for type")
-
-    this.room.partecipants.forEach(partecipant => {
-
-      if(partecipant.partecipantType == 1){
-        this.currentPartecipant = partecipant
-      }
-    });
-    if(this.currentPartecipant.partecipantType == 1){
-      this.imageUrl = "assets/imgs/BrickFinal"
-    }
-    else if (this.room.roomType == 0){
+    this.room.WasVisitedByPlayer
+    
+    if (this.room.roomType == 0){
       this.imageUrl = "assets/imgs/EnemyFinal.png"
     }
     else if(this.room.roomType == 1){
@@ -58,8 +49,52 @@ export class RoomComponent implements OnInit{
     else if(this.room.roomType == 2){
       this.imageUrl = "assets/imgs/SpawnFinal.png"
     }
+    else if(this.room.x == 0 && this.room.y == 0){
+      this.imageUrl = "assets/imgs/EnemyFinal.png"
+    }
+    this.room.partecipants.forEach(partecipant => {
+      if(partecipant.partecipantType == 1){
+        
+        this.playerInRoom = true;
+        this.player = partecipant;
+        this.imageUrl = "assets/imgs/BrickFinal.png"
+        
+      }
+      if(partecipant.partecipantType == 2 ){
+        this.enemyInRoom = true;
+      }
+    });   
+    if(this.playerInRoom && this.enemyInRoom){
+      this.imageUrl = "assets/imgs/FightingFinal.png"
+    }
+
+    if(this.room.roomType == 0 && this.enemyInRoom == false){
+      this.imageUrl = "assets/imgs/EnemyFinalDead.png"
+    }
+    this.room.partecipants.forEach(partecipant => {
+      if(partecipant.partecipantType == 1){
+        
+        this.playerInRoom = true;
+        this.player = partecipant;
+        this.imageUrl = "assets/imgs/BrickFinal.png"
+      }
+      if(partecipant.partecipantType == 2 ){
+        this.enemyInRoom = true;
+      }
+    });  
+    if(this.playerInRoom && this.enemyInRoom){
+      this.imageUrl = "assets/imgs/FightingFinal.png"
+    } 
     
   }
+   subscribeToRoomsChanged(){
+    this.roomService.currentRoomList.subscribe(appRooms => {
+      this.room = this.roomService.getRoom(this.X, this.Y);
+      this.setRoom(this.room)
+    })
+  }
 }
+
+
 
 

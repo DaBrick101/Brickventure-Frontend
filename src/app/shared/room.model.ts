@@ -2,7 +2,7 @@ import { Partecipant } from "./partecipant.model";
 
 export class Room{
     public roomType : number;
-    public partecipants : Partecipant[];//change number to Partecipants Model
+    public partecipants : Partecipant[];
     public WasVisitedByPlayer: boolean;
     public x : number = 0;
     public y : number = 0;
@@ -14,8 +14,6 @@ export class Room{
         this.WasVisitedByPlayer = room.WasVisitedByPlayer;
         this.x = room.x;
         this.y  = room.y;
-        
-
     }
     //  constructor(RoomType : number,Participants: number[],  WasVisitedByPlayer: boolean, X:number,Y:number, Z:number){ // add partecipants again
     //     this.RoomType = RoomType;

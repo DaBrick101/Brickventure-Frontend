@@ -4,74 +4,73 @@
       width: 80%;
   }
   </style>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container text-center">
+      <h1 class="display-3">Brickventure - Angular/WebAPI</h1>
+      <button class="btn btn-primary btn-lg" style="width: 100px;" type="button" (click)="reset()">Reset</button>
+    </div>
+  </div>
+<div style="height: 100px;">
 
-<div class="table-responsive">
-  <table class="mx-auto w-auto">
-    <tr *ngFor="let item of [].constructor(5); let i = index">
-      <td *ngFor="let item of [].constructor(10); let j = index"  class="border border-4" >
-        <app-roomComponent [X]="i" [Y]="j"></app-roomComponent>
-      </td>
-  </tr>
-  </table>
 </div>
+  <div class="container">
+    <div class="row justify-content-xxl-right">
+      <div class="col-9">
+        <div class="table-responsive">
+
+          <table class="mx-auto w-auto">
+            <tr *ngFor="let item of [].constructor(5); let i = index">
+              <td *ngFor="let item of [].constructor(10); let j = index"  class="border border-4" >
+                <app-roomComponent [X]="i" [Y]="j"></app-roomComponent>
+              </td>
+          </tr>
+          </table>
+
+        </div>      
+      </div>
+      <div class="col-3">
+          <label>Quick Time Events:</label>
+          <div class="container text-center">
+            <div class="alert alert-danger" role="alert" style="height: 50px;">
+            {{world.message}}
+            </div>
+          </div>
+
+          <div style="height: 10px;"></div>
+          <!--Move LEft/Right on Page-->
+          <div class="container text-center">
+            <p>W - Up</p>
+            <p>A - Left</p>
+            <p>S - Down</p>
+            <p>D - Right</p>
+          </div>
+           
+          <div class="container content-center">
+            <div class="container text-center">
+              <div class="row d-flex justify-content-center">
+                <div class="col-md-5"><button class="btn btn-primary btn-lg" style="width: 100px;" type="button" (click)="moveUp()">Up</button></div>
+              </div>
+              <div style="height: 5px;"></div>
+              <div class="row d-flex justify-content-center">
+                <div class="col-sm-5"><button class="btn btn-primary btn-lg" style="width: 100px;" type="button" (click)="moveLeft()">Left</button></div>
+                <div class="col-sm-5"><button class="btn btn-primary btn-lg" style="width: 100px;" type="button" (click)="moveRight()">Right</button></div>
+              </div>
+              <div style="height: 5px;"></div>
+              <div class="row d-flex justify-content-center">
+                <div class="col-md-5"><button class="btn btn-primary btn-lg" style="width: 100px;" type="button" (click)="moveDown()">Down</button></div>
+              </div>
+              <br>
+              <div class="row d-flex justify-content-center">
+                <div class="col-sm-5"><button class="btn btn-danger btn-lg" style="width: 100px;" type="button" (click)="attack()">Attack</button></div>
+                <div class="col-sm-5"><button class="btn btn-secondary btn-lg" style="width: 100px;" type="button" (click)="defend()">Defend</button></div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
 <br>
-<!-- TODO Only show if message has data -->
 
-<div class="container text-center">
-  <div class="alert alert-danger" role="alert">
-  {{world.message}}
-  </div>
-</div>
-<div class="container content-center">
-  <div class="container text-center">
-    <div class="row d-flex justify-content-center">
-      <div class="col-md-4"><button class="btn btn-primary btn-lg" style="width: 100px;" type="button" (click)="moveUp()">Up</button></div>
-    </div>
-    <div class="row d-flex justify-content-center">
-      <div class="col-sm-2"><button class="btn btn-primary btn-lg" style="width: 100px;" type="button" (click)="moveLeft()">Left</button></div>
-      <div class="col-sm-2"><button class="btn btn-primary btn-lg" style="width: 100px;" type="button" (click)="moveRight()">Right</button></div>
-    </div>
-    <div class="row d-flex justify-content-center">
-      <div class="col-md-4"><button class="btn btn-primary btn-lg" style="width: 100px;" type="button" (click)="moveDown()">Down</button></div>
-    </div>
-    <br>
-    <br>
-    <div class="row d-flex justify-content-center">
-      <div class="col-sm-2"><button class="btn btn-danger btn-lg" style="width: 100px;" type="button" (click)="attack()">Attack</button></div>
-      <div class="col-sm-2"><button class="btn btn-secondary btn-lg" style="width: 100px;" type="button" (click)="defend()">Defend</button></div>
-    </div>
-  </div>
-</div>
 
-<!-- <div class="container text-center">
-  <div class="row">
-    <div class="col-sm-8">
-      <button class="btn btn-primary" (click)="moveUp()">Up</button>
-    </div>
-    <br>
-    <br>
-    <div class="row">
-      <div class="col-sm">
-        <button class="btn btn-primary" (click)="moveRight()">Right</button>
-      </div>
-      <div class="col-sm">
-        <button class="btn btn-primary" (click)="moveLeft()">Left</button>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <button class="btn btn-primary" (click)="moveDown()">Down</button>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <button class="btn btn-primary" (click)="attack()">Attack</button>
-        <button class="btn btn-primary" (click)="defend()">Defend</button>
-      </div>
-    </div>
-    <div class="row">
-      <button class="btn btn-primary" (click)="refresh()">Refresh</button>
-    </div>
-
-  </div>
-</div> -->
