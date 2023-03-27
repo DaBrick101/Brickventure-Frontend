@@ -7,6 +7,7 @@ import { GamefieldComponent } from './gamefield/gamefield.component';
 import { ChunkPipe } from './shared/chunk.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './services/api.service';
+import { GamfieldTouchComponent } from './gamfield-touch/gamfield-touch.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { ApiService } from './services/api.service';
     RoomComponent,
     GamefieldComponent,
     ChunkPipe,
+    GamfieldTouchComponent,
   ],
   imports: [
     BrowserModule,

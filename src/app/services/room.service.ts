@@ -10,6 +10,12 @@ import { ApiService } from './api.service';
 export class RoomService {
   
   roomList: Room[][] = [
+  [new Room(), new Room(), new Room()],
+  [new Room(), new Room(), new Room()],
+  [new Room(), new Room(), new Room()]
+];
+
+  roomListX: Room[][] = [
   [new Room(), new Room(), new Room(), new Room(), new Room(), new Room(), new Room(), new Room(), new Room(), new Room()],
   [new Room(), new Room(), new Room(), new Room(), new Room(), new Room(), new Room(), new Room(), new Room(), new Room()],
   [new Room(), new Room(), new Room(), new Room(), new Room(), new Room(), new Room(), new Room(), new Room(), new Room()],
@@ -29,6 +35,8 @@ export class RoomService {
   subscribeToRoomsChanged(){
     this.apiService.currentAppRoom.subscribe(world => {
       
+      if(world.gameField === undefined) return;
+
       world.gameField.forEach(room => {
         this.roomList[room.y][room.x].Assign(room);
       })

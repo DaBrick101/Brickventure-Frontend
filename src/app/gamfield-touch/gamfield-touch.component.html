@@ -1,0 +1,77 @@
+<style type="text/css">
+    .table {
+        margin: 0 auto;
+        width: 80%;
+    }
+    </style>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container text-center">
+        <h1 class="display-3">Brickventure - Angular/WebAPI</h1>
+        <button class="btn btn-primary btn-lg" style="width: 100px;" type="button" (click)="reset()">Reset</button>
+      </div>
+    </div>
+  <div style="height: 100px;">
+  
+  </div>
+    <div class="container">
+      <div class="row justify-content-xxl-right">
+        <div class="col-9">
+          <div class="table-responsive">
+  
+            <table class="mx-auto w-auto">
+              <tr *ngFor="let item of [].constructor(3); let i = index">
+                <td *ngFor="let item of [].constructor(3); let j = index"  class="border border-4" >
+                  <app-roomComponent [X]="i" [Y]="j"></app-roomComponent>
+                </td>
+            </tr>
+            </table>
+  
+          </div>      
+        </div>
+        <div class="col-3">
+            <label>Quick Time Events:</label>
+            <div class="container text-center">
+              <div class="alert alert-danger" role="alert" style="height: 50px;">
+              {{world.message}}
+              </div>
+            </div>
+  
+            <div style="height: 10px;"></div>
+            <!--Move LEft/Right on Page-->
+            <div class="container text-center">
+              <p>W - Up</p>
+              <p>A - Left</p>
+              <p>S - Down</p>
+              <p>D - Right</p>
+            </div>
+             
+            <div class="container content-center">
+              <div class="container text-center">
+                <div class="row d-flex justify-content-center">
+                  <div class="col-md-5"><button class="btn btn-primary btn-lg" style="width: 100px;" type="button" (click)="moveUp()">Up</button></div>
+                </div>
+                <div style="height: 5px;"></div>
+                <div class="row d-flex justify-content-center">
+                  <div class="col-sm-5"><button class="btn btn-primary btn-lg" style="width: 100px;" type="button" (click)="moveLeft()">Left</button></div>
+                  <div class="col-sm-5"><button class="btn btn-primary btn-lg" style="width: 100px;" type="button" (click)="moveRight()">Right</button></div>
+                </div>
+                <div style="height: 5px;"></div>
+                <div class="row d-flex justify-content-center">
+                  <div class="col-md-5"><button class="btn btn-primary btn-lg" style="width: 100px;" type="button" (click)="moveDown()">Down</button></div>
+                </div>
+                <br>
+                <div class="row d-flex justify-content-center">
+                  <div class="col-sm-5"><button class="btn btn-danger btn-lg" style="width: 100px;" type="button" (click)="attack()">Attack</button></div>
+                  <div class="col-sm-5"><button class="btn btn-secondary btn-lg" style="width: 100px;" type="button" (click)="defend()">Defend</button></div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  
+  
+  <br>
+  
+  
+  

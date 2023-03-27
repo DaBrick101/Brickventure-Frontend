@@ -15,13 +15,28 @@ export class Room{
         this.x = room.x;
         this.y  = room.y;
     }
-    //  constructor(RoomType : number,Participants: number[],  WasVisitedByPlayer: boolean, X:number,Y:number, Z:number){ // add partecipants again
-    //     this.RoomType = RoomType;
-    //     this.Participants = Participants;
-    //     this.WasVisitedByPlayer = WasVisitedByPlayer;
-    //     this.X = X;
-    //     this.Y  = Y;
-    //     this.Z = Z;
+    IsEnemyRoom():boolean {
+        return this.roomType == 0;
+    }
+    
+    ContainsPlayer():boolean {
+        return this.ContainsPartecipantOfType(1);
+    }
 
-    // }
+    ContainsEnemy():boolean {
+        return this.ContainsPartecipantOfType(2);
+    }
+    
+    private ContainsPartecipantOfType(partecipantType: number): boolean {
+
+        var found: boolean = false;
+        if(this.partecipants !== undefined) {
+            this.partecipants.forEach(partecipant => {
+                if(partecipant.partecipantType == partecipantType ){
+                    found = true;
+                }
+            });
+        }
+        return found;
+    }
 }

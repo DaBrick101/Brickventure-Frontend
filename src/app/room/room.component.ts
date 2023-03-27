@@ -13,24 +13,21 @@ export class RoomComponent implements OnInit{
 
   @Input() X: number;
   @Input() Y: number;
- 
+  
   room: Room;
   imageUrl: string;
-  counterConstructor: number;
-  counterOninit: number;
   player: Partecipant;
   playerInRoom: boolean;
   enemyInRoom: boolean;
 
   constructor(private roomService : RoomService){
     
-    this.counterConstructor++;
   }
   ngOnInit(): void {
-    this.counterOninit++;
+  
+    this.subscribeToRoomsChanged();
     this.room = this.roomService.getRoom(this.X, this.Y);
     this.setRoom(this.room);
-    this.subscribeToRoomsChanged();
   }
 
   public setRoom(room: Room) {
@@ -38,7 +35,6 @@ export class RoomComponent implements OnInit{
     this.enemyInRoom = false;
  
     this.room = room;
-    this.room.WasVisitedByPlayer
     
     if (this.room.roomType == 0){
       this.imageUrl = "assets/imgs/EnemyFinal.png"
@@ -49,43 +45,16 @@ export class RoomComponent implements OnInit{
     else if(this.room.roomType == 2){
       this.imageUrl = "assets/imgs/SpawnFinal.png"
     }
-    else if(this.room.x == 0 && this.room.y == 0){
-      this.imageUrl = "assets/imgs/EnemyFinal.png"
-    }
-    this.room.partecipants.forEach(partecipant => {
-      if(partecipant.partecipantType == 1){
-        
-        this.playerInRoom = true;
-        this.player = partecipant;
-        this.imageUrl = "assets/imgs/BrickFinal.png"
-        
-      }
-      if(partecipant.partecipantType == 2 ){
-        this.enemyInRoom = true;
-      }
-    });   
-    if(this.playerInRoom && this.enemyInRoom){
+    
+    if(this.room.ContainsPlayer() && this.room.ContainsEnemy()) {
       this.imageUrl = "assets/imgs/FightingFinal.png"
     }
-
-    if(this.room.roomType == 0 && this.enemyInRoom == false){
+    else if (this.room.ContainsPlayer()) {
+      this.imageUrl = "assets/imgs/BrickFinal.png"
+    }
+    else if(this.room.IsEnemyRoom() && !this.room.ContainsEnemy()) {
       this.imageUrl = "assets/imgs/EnemyFinalDead.png"
     }
-    this.room.partecipants.forEach(partecipant => {
-      if(partecipant.partecipantType == 1){
-        
-        this.playerInRoom = true;
-        this.player = partecipant;
-        this.imageUrl = "assets/imgs/BrickFinal.png"
-      }
-      if(partecipant.partecipantType == 2 ){
-        this.enemyInRoom = true;
-      }
-    });  
-    if(this.playerInRoom && this.enemyInRoom){
-      this.imageUrl = "assets/imgs/FightingFinal.png"
-    } 
-    
   }
    subscribeToRoomsChanged(){
     this.roomService.currentRoomList.subscribe(appRooms => {
