@@ -37,6 +37,7 @@ export class RoomComponent implements OnInit{
  
     this.room = room;
     
+    
     if (this.room.roomType == 0){
       this.imageUrl = "assets/imgs/EnemyFinal.png"
     }
@@ -53,6 +54,9 @@ export class RoomComponent implements OnInit{
       this.imageUrl = "assets/imgs/SpawnFinal.png"
     }
     
+    if(this.room.wasVisitedByPlayer == false){
+      this.imageUrl = "assets/imgs/FogFinal.png"
+    }
     if(this.room.ContainsPlayer() && this.room.ContainsEnemy()) {
       this.imageUrl = "assets/imgs/FightingFinal.png"
     }
