@@ -74,6 +74,14 @@ export class ApiService{
             this.assignGameFieldValues(response);
         });
     }
+    restart() {
+        this.http.get('https://localhost:7149/api/brickventureAPI/Restart')
+
+        .subscribe((response: World)=> {
+
+            this.assignGameFieldValues(response);
+        });
+    }
     public assignGameFieldValues(response: World){
         this.world = response;
         this.appRooms = [];

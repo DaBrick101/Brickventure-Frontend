@@ -1,6 +1,7 @@
 .card-img-top {
     width: 100%;
-    height: 70px;
+    height: 110px;
     padding: 5px;
+    padding-top: 30px;
     object-fit: contain;
 }

@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: dungrg;
+    src: url(assets/fonts/dungeon_sn/DUNGRG__.TTF) format('truetype');
+  }
+
+body {
+    background-image: url(assets/imgs/dungeon.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #cccccc;
+    color: rgb(173, 2, 36);
+    font-family: 'dungrg';
+    font-weight: bold;
+   }

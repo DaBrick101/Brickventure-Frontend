@@ -4,68 +4,114 @@
         width: 80%;
     }
     </style>
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container text-center">
-        <h1 class="display-3">Brickventure - Angular/WebAPI</h1>
-        <button class="btn btn-primary btn-lg" style="width: 100px;" type="button" (click)="reset()">Reset</button>
-      </div>
-    </div>
-  <div style="height: 100px;">
-  
-  </div>
-    <div class="container">
+  <button class="btn btn-primary btn-lg" style="width: 100px; float: right;" type="button" (click)="restart()">Restart</button>
+  <div style="height: 50px;"></div>
+    <div class="container-fluid">
       <div class="row justify-content-xxl-right">
-        <div class="col-9">
+
+
+        <div class="col-7  text-center">
+          <h1 class="display-1">Brickventure - Angular/WebAPI</h1>
           <div class="table-responsive">
   
             <table class="mx-auto w-auto">
-              <tr *ngFor="let item of [].constructor(3); let i = index">
-                <td *ngFor="let item of [].constructor(3); let j = index"  class="border border-4" >
-                  <app-roomComponent [X]="i" [Y]="j"></app-roomComponent>
+              <tr *ngFor="let item of [].constructor(5); let i = index">
+                <td *ngFor="let item of [].constructor(5); let j = index"  class="border border-4" >
+                  <app-roomComponent style="font-size: xx-large;" [X]="i" [Y]="j"></app-roomComponent>
                 </td>
             </tr>
             </table>
-  
           </div>      
         </div>
-        <div class="col-3">
-            <label>Quick Time Events:</label>
+
+
+        <div class="col-5" >
+
+
+          <!-- <div class="container-fluid" style="border-top:5px solid RED; border-bottom: 5px solid RED;">
+            <h2>Quick Time Events:</h2>
             <div class="container text-center">
-              <div class="alert alert-danger" role="alert" style="height: 50px;">
+              <div class="alert alert-danger" role="alert" style="height: 60px;">
               {{world.message}}
               </div>
             </div>
+          </div>  -->
+
+          <div class="container-fluid">
+            <h1 style="font-size: 60px;">Quick Time Events:</h1>
+            <div class="container text-center">
+              <div class="" role="alert" style="height: 60px; font-size: 40px;">
+              {{world.message}}
+              </div>
+            </div>
+          </div>
+          
+          
+          
+            <br>
+
+
+            <div class="container-fluid">
+              <h2 style="font-size: 60px;">Health:</h2>
+              <div class="container text-center">
+                <table class="mx-auto w-auto">
+                  <tr>
+                    <td *ngFor="let item of [].constructor(world.health); let j = index" >
+                      <img src="assets/imgs/HealFinal.png" style="height:80px; width:80px;">
+                    </td>
+                </tr>
+                </table>
+              </div>
+            </div>
+            
   
             <div style="height: 10px;"></div>
-            <!--Move LEft/Right on Page-->
-            <div class="container text-center">
-              <p>W - Up</p>
-              <p>A - Left</p>
-              <p>S - Down</p>
-              <p>D - Right</p>
-            </div>
-             
-            <div class="container content-center">
-              <div class="container text-center">
-                <div class="row d-flex justify-content-center">
-                  <div class="col-md-5"><button class="btn btn-primary btn-lg" style="width: 100px;" type="button" (click)="moveUp()">Up</button></div>
-                </div>
-                <div style="height: 5px;"></div>
-                <div class="row d-flex justify-content-center">
-                  <div class="col-sm-5"><button class="btn btn-primary btn-lg" style="width: 100px;" type="button" (click)="moveLeft()">Left</button></div>
-                  <div class="col-sm-5"><button class="btn btn-primary btn-lg" style="width: 100px;" type="button" (click)="moveRight()">Right</button></div>
-                </div>
-                <div style="height: 5px;"></div>
-                <div class="row d-flex justify-content-center">
-                  <div class="col-md-5"><button class="btn btn-primary btn-lg" style="width: 100px;" type="button" (click)="moveDown()">Down</button></div>
-                </div>
-                <br>
-                <div class="row d-flex justify-content-center">
-                  <div class="col-sm-5"><button class="btn btn-danger btn-lg" style="width: 100px;" type="button" (click)="attack()">Attack</button></div>
-                  <div class="col-sm-5"><button class="btn btn-secondary btn-lg" style="width: 100px;" type="button" (click)="defend()">Defend</button></div>
+
+            <!-- <div class="container-fluid">
+              <h2>Controls:</h2>
+              <div class="container content-center">
+                <div class="container text-center">
+                  <div class="row d-flex justify-content-center">
+                    <div class="col-md-3"><p>W - UP</p></div>
+                  </div>
+                  <div style="height: 2px;"></div>
+                  <div class="row d-flex justify-content-center">
+                    <div class="col-sm-2"><p>A - LEFT</p></div>
+                    <div class="col-sm-2"><p>D - RIGHT</p></div>
+                  </div>
+                  <div style="height: 2px;"></div>
+                  <div class="row d-flex justify-content-center">
+                    <div class="col-md-3"><p>S - DOWN</p></div>
+                  </div>
                 </div>
               </div>
             </div>
+             -->
+
+
+            <div class="container-fluid content-center">
+              <h2 style="font-size: 60px;">Controls:</h2>
+              <div class="container text-center">
+                <div class="row d-flex justify-content-center">
+                  <div class="col-md-5"><button class="btn btn-lg" style="width: 100px; height:100px; color: white; background-color: darkslategray; font-size: 30px;" type="button" (click)="moveUp()">Up</button></div>
+                </div>
+                <div style="height: 5px;"></div>
+                <div class="row d-flex justify-content-center">
+                  <div class="col-sm-3"><button class="btn btn-lg" style="width: 100px; height:100px; color: white; background-color: darkslategray; font-size: 30px;" type="button" (click)="moveLeft()">Left</button></div>
+                  <div class="col-sm-3"><button class="btn btn-lg" style="width: 100px; height:100px; color: white; background-color: darkslategray; font-size: 30px;" type="button" (click)="moveRight()">Right</button></div>
+                </div>
+                <div style="height: 5px;"></div>
+                <div class="row d-flex justify-content-center">
+                  <div class="col-md-5"><button class="btn btn-lg" style="width: 100px; height:100px; color: white; background-color: darkslategray; font-size: 30px;" type="button" (click)="moveDown()">Down</button></div>
+                </div>
+                <div class="row d-flex justify-content-center">
+                  <div class="col-sm-5"><button class="btn btn-danger btn-lg" style="width: 100px; height:100px; font-size: 30px;" type="button" (click)="attack()">Attack</button></div>
+                  <div class="col-sm-5"><button class="btn btn-secondary btn-lg" style="width: 100px; height:100px; font-size: 30px;" type="button" (click)="defend()">Defend</button></div>
+                </div>
+              </div>
+            </div>
+
+            
         </div>
       </div>
     </div>

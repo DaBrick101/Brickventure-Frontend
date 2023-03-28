@@ -19,6 +19,7 @@ export class RoomComponent implements OnInit{
   player: Partecipant;
   playerInRoom: boolean;
   enemyInRoom: boolean;
+  isActive: boolean;
 
   constructor(private roomService : RoomService){
     
@@ -40,7 +41,13 @@ export class RoomComponent implements OnInit{
       this.imageUrl = "assets/imgs/EnemyFinal.png"
     }
     else if(this.room.roomType == 1){
-      this.imageUrl = "assets/imgs/HealFinal.png"
+      if(this.room.isActive == 1){
+        this.imageUrl = "assets/imgs/HealFinal.png"
+      }
+      else{
+        this.imageUrl = "assets/imgs/HealFinalInactive.png"
+      }
+      
     }
     else if(this.room.roomType == 2){
       this.imageUrl = "assets/imgs/SpawnFinal.png"

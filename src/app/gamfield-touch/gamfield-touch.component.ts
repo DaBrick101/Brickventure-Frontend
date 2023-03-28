@@ -16,6 +16,7 @@ export class GamfieldTouchComponent {
     this.world = new World();
     this.subscribeToRoomsChanged();
     this.apiService.startTimer();
+    
   }
   //TODO Add Key mapping and events
   @HostListener('document:keypress', ['$event'])
@@ -61,8 +62,8 @@ export class GamfieldTouchComponent {
   defend(){
     this.apiService.defend();
   }
-  reset(){
-    this.apiService.loadRooms();
+  restart(){
+    this.apiService.restart();
   }
   subscribeToRoomsChanged(){
     this.apiService.currentAppRoom.subscribe(world => {     

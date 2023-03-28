@@ -10,9 +10,11 @@ import { ApiService } from './api.service';
 export class RoomService {
   
   roomList: Room[][] = [
-  [new Room(), new Room(), new Room()],
-  [new Room(), new Room(), new Room()],
-  [new Room(), new Room(), new Room()]
+  [new Room(), new Room(), new Room(), new Room(), new Room()],
+  [new Room(), new Room(), new Room(), new Room(), new Room()],
+  [new Room(), new Room(), new Room(), new Room(), new Room()],
+  [new Room(), new Room(), new Room(), new Room(), new Room()],
+  [new Room(), new Room(), new Room(), new Room(), new Room()]
 ];
 
   roomListX: Room[][] = [
@@ -24,6 +26,7 @@ export class RoomService {
 ];
 
   message : string;
+  health : number;
 
   private roomListObs = new BehaviorSubject<Room[][]>([]);
   currentRoomList = this.roomListObs.asObservable();
@@ -41,6 +44,7 @@ export class RoomService {
         this.roomList[room.y][room.x].Assign(room);
       })
       this.message = world.message;
+      this.health = world.health;
       this.roomListObs.next(this.roomList);
     })
   }
@@ -51,4 +55,5 @@ export class RoomService {
   getMessage(){
     return this.message;
   }
+ 
 }
