@@ -70,4 +70,5 @@ export class GamfieldTouchComponent {
       this.world = world;
     })
   }
+ 
 }
