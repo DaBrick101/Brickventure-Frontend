@@ -41,7 +41,7 @@ export class GamfieldTouchComponent {
     }
  }
   refresh(){
-    window.location.reload();
+    window.location.reload(); 
   }
   moveUp(){
     this.apiService.moveUp();
@@ -129,7 +129,7 @@ export class GamfieldTouchComponent {
   didPlayerWin() : boolean{
     if(this.world.message === "YOU WON!!!" ){
       this.stop();
-      
+      this.world.message = "";
       return true;
     }
     else{
