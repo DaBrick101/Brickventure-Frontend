@@ -9,9 +9,40 @@
     <div class="container-fluid">
       <div class="row justify-content-xxl-right">
 
+        <div class="col-md-1" style="margin-top: 100px;">
+          <div class="container-fluid">
+            <div class="container text-center">
+              <label style="font-size: 50px;">Leben:</label>
+              <table class="mx-auto w-auto">
+                <tr *ngFor="let item of [].constructor(world.health); let j = index">
+                  <td>
+                    <img src="assets/imgs/HealFinal.png" style="height:80px; width:80px;">
+                  </td>
+              </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6  text-center">
+          <h1 class="display-1" style="font-size: 90px;">Brickventure - Dungeon</h1>
+          <!-- <h2>Time: </h2> -->
+          <div class="container">
+            <div class="stopwatch" style="font-size: 25px;">
+                <span>{{min}} : </span>
+                <span>{{sec}} : </span>
+                <span>{{ms}}</span>
+            </div>
+            <div class="Button-container" style="text-align: center;">
+              <button *ngIf="!running" class="btn btn-large"(click)="start()" style="height: 65px; width: 135px; background: url(assets/imgs/start.png); background-repeat: no-repeat; background-size: cover;">
+              </button>
+              <button *ngIf="running" class="btn btn-large"(click)="start()" style="visibility: hidden;">
+              </button>
+            </div>
+            </div>
+            <div style="height: 15px;"></div>
 
-        <div class="col-md-7  text-center">
-          <h1 class="display-1">Brickventure - Dungeon</h1>
+
           <div class="table-responsive">
   
             <table class="mx-auto w-auto">
@@ -25,7 +56,7 @@
         </div>
 
 
-        <div class="col-md-5" >
+        <div class="col-md-4" >
 
 
           <!-- <div class="container-fluid" style="border-top:5px solid RED; border-bottom: 5px solid RED;">
@@ -38,7 +69,7 @@
           </div>  -->
 
           <div class="container-fluid">
-            <label style="font-size: 50px; margin-top: 20px;">Quick Time Events:</label>
+            <label style="font-size: 50px; margin-top: 20px;">Aktion Events:</label>
             <div class="container text-center">
               <div class="image"style="height: 200px; font-size: 60px;">
                 <img src="assets/imgs/ScrollFinal.png" style="height: 200px;">
@@ -54,18 +85,7 @@
             <br>
 
 
-            <div class="container-fluid">
-              <label style="font-size: 50px;">Health:</label>
-              <div class="container text-center">
-                <table class="mx-auto w-auto">
-                  <tr>
-                    <td *ngFor="let item of [].constructor(world.health); let j = index" >
-                      <img src="assets/imgs/HealFinal.png" style="height:80px; width:80px;">
-                    </td>
-                </tr>
-                </table>
-              </div>
-            </div>
+           
             
   
             <div style="height: 10px;"></div>
@@ -93,14 +113,14 @@
 
 
             <div class="container-fluid content-center">
-              <label style="font-size: 50px;">Controls:</label>
+              <label style="font-size: 50px;">Steuerung:</label>
               <div class="container text-center">
                 <div class="row d-flex justify-content-center">
                   <div class="col-md-3"><button class="btn btn-lg" style="width: 100px; height:100px; color: white; background-color: darkslategray; font-size: 30px; background: url(assets/imgs/ButtonUpFinal.png); background-repeat: no-repeat; background-size: cover;" type="button" (click)="moveUp()"></button></div>
                 </div>
                 <div class="row d-flex justify-content-center">
-                  <div class="col-sm-3"><button class="btn btn-lg" style="width: 100px; height:100px; color: white; background-color: darkslategray; font-size: 30px; background: url(assets/imgs/ButtonLeftFinal.png); background-repeat: no-repeat; background-size: cover;" type="button" (click)="moveLeft()"></button></div>
-                  <div class="col-sm-3"><button class="btn btn-lg" style="width: 100px; height:100px; color: white; background-color: darkslategray; font-size: 30px; background: url(assets/imgs/ButtonRightFinal.png); background-repeat: no-repeat; background-size: cover;" type="button" (click)="moveRight()"></button></div>
+                  <div class="col-sm-4"><button class="btn btn-lg" style="width: 100px; height:100px; color: white; background-color: darkslategray; font-size: 30px; background: url(assets/imgs/ButtonLeftFinal.png); background-repeat: no-repeat; background-size: cover;" type="button" (click)="moveLeft()"></button></div>
+                  <div class="col-sm-4"><button class="btn btn-lg" style="width: 100px; height:100px; color: white; background-color: darkslategray; font-size: 30px; background: url(assets/imgs/ButtonRightFinal.png); background-repeat: no-repeat; background-size: cover;" type="button" (click)="moveRight()"></button></div>
                 </div>
                 <div class="row d-flex justify-content-center">
                   <div class="col-md-3"><button class="btn btn-lg" style="width: 100px; height:100px; color: white; background-color: darkslategray; font-size: 30px; background: url(assets/imgs/ButtonDownFinal.png); background-repeat: no-repeat; background-size: cover;" type="button" (click)="moveDown()"></button></div>
@@ -110,15 +130,14 @@
                   <div class="col-sm-4"><button class="btn btn-secondary btn-lg" style="width: 100px; height:100px; font-size: 30px;" type="button" (click)="defend()">Defend</button></div>
                 </div>
               </div>
-            </div>
-
-            
+            </div>  
         </div>
       </div>
     </div>
   
   
   <br>
+ 
   
   
   

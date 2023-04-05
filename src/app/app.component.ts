@@ -14,4 +14,8 @@ export class AppComponent {
   }
   
   title = 'Brickventure';
+
+  unlockEgg(){
+    
+  }
 }
