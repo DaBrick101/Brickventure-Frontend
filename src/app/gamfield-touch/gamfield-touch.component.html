@@ -5,7 +5,7 @@
     }
     </style>
   <button class="btn btn-primary btn-lg" style="width: 100px; float: right;" type="button" (click)="restart()">Restart</button>
-  <div style="height: 40px;"></div>
+  <div style="height: 20px;"></div>
     <div class="container-fluid">
       <div class="row justify-content-xxl-right">
 
@@ -111,26 +111,52 @@
             </div>
              -->
 
-
-            <div class="container-fluid content-center">
-              <label style="font-size: 50px;">Steuerung:</label>
-              <div class="container text-center">
-                <div class="row d-flex justify-content-center">
-                  <div class="col-md-3"><button class="btn btn-lg" style="width: 100px; height:100px; color: white; background-color: darkslategray; font-size: 30px; background: url(assets/imgs/ButtonUpFinal.png); background-repeat: no-repeat; background-size: cover;" type="button" (click)="moveUp()"></button></div>
-                </div>
-                <div class="row d-flex justify-content-center">
-                  <div class="col-sm-4"><button class="btn btn-lg" style="width: 100px; height:100px; color: white; background-color: darkslategray; font-size: 30px; background: url(assets/imgs/ButtonLeftFinal.png); background-repeat: no-repeat; background-size: cover;" type="button" (click)="moveLeft()"></button></div>
-                  <div class="col-sm-4"><button class="btn btn-lg" style="width: 100px; height:100px; color: white; background-color: darkslategray; font-size: 30px; background: url(assets/imgs/ButtonRightFinal.png); background-repeat: no-repeat; background-size: cover;" type="button" (click)="moveRight()"></button></div>
-                </div>
-                <div class="row d-flex justify-content-center">
-                  <div class="col-md-3"><button class="btn btn-lg" style="width: 100px; height:100px; color: white; background-color: darkslategray; font-size: 30px; background: url(assets/imgs/ButtonDownFinal.png); background-repeat: no-repeat; background-size: cover;" type="button" (click)="moveDown()"></button></div>
-                </div>
-                <div class="row d-flex justify-content-center">
-                  <div class="col-sm-4"><button class="btn btn-danger btn-lg" style="width: 100px; height:100px; font-size: 30px;" type="button" (click)="attack()">Attack</button></div>
-                  <div class="col-sm-4"><button class="btn btn-secondary btn-lg" style="width: 100px; height:100px; font-size: 30px;" type="button" (click)="defend()">Defend</button></div>
-                </div>
+             <div *ngIf="!running">
+              <div style="pointer-events: none;">
+                <div class="container-fluid content-center">
+                  <label style="font-size: 50px;">Steuerung:</label>
+                  <div class="container text-center">
+                    <div class="row d-flex justify-content-center">
+                      <div class="col-md-3"><button class="btn btn-lg" style="width: 100px; height:100px; color: white; background-color: darkslategray; font-size: 30px; background: url(assets/imgs/ButtonUpFinal.png); background-repeat: no-repeat; background-size: cover;" type="button" (click)="moveUp()"></button></div>
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                      <div class="col-sm-4"><button class="btn btn-lg" style="width: 100px; height:100px; color: white; background-color: darkslategray; font-size: 30px; background: url(assets/imgs/ButtonLeftFinal.png); background-repeat: no-repeat; background-size: cover;" type="button" (click)="moveLeft()"></button></div>
+                      <div class="col-sm-4"><button class="btn btn-lg" style="width: 100px; height:100px; color: white; background-color: darkslategray; font-size: 30px; background: url(assets/imgs/ButtonRightFinal.png); background-repeat: no-repeat; background-size: cover;" type="button" (click)="moveRight()"></button></div>
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                      <div class="col-md-3"><button class="btn btn-lg" style="width: 100px; height:100px; color: white; background-color: darkslategray; font-size: 30px; background: url(assets/imgs/ButtonDownFinal.png); background-repeat: no-repeat; background-size: cover;" type="button" (click)="moveDown()"></button></div>
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                      <div class="col-sm-4"><button class="btn btn-danger btn-lg" style="width: 100px; height:100px; font-size: 30px;" type="button" (click)="attack()">Attack</button></div>
+                      <div class="col-sm-4"><button class="btn btn-secondary btn-lg" style="width: 100px; height:100px; font-size: 30px;" type="button" (click)="defend()">Defend</button></div>
+                    </div>
+                  </div>
+                </div>  
               </div>
-            </div>  
+             </div>
+
+             <div *ngIf="running">
+              <div class="container-fluid content-center">
+                <label style="font-size: 50px;">Steuerung:</label>
+                <div class="container text-center">
+                  <div class="row d-flex justify-content-center">
+                    <div class="col-md-3"><button class="btn btn-lg" style="width: 100px; height:100px; color: white; background-color: darkslategray; font-size: 30px; background: url(assets/imgs/ButtonUpFinal.png); background-repeat: no-repeat; background-size: cover;" type="button" (click)="moveUp()"></button></div>
+                  </div>
+                  <div class="row d-flex justify-content-center">
+                    <div class="col-sm-4"><button class="btn btn-lg" style="width: 100px; height:100px; color: white; background-color: darkslategray; font-size: 30px; background: url(assets/imgs/ButtonLeftFinal.png); background-repeat: no-repeat; background-size: cover;" type="button" (click)="moveLeft()"></button></div>
+                    <div class="col-sm-4"><button class="btn btn-lg" style="width: 100px; height:100px; color: white; background-color: darkslategray; font-size: 30px; background: url(assets/imgs/ButtonRightFinal.png); background-repeat: no-repeat; background-size: cover;" type="button" (click)="moveRight()"></button></div>
+                  </div>
+                  <div class="row d-flex justify-content-center">
+                    <div class="col-md-3"><button class="btn btn-lg" style="width: 100px; height:100px; color: white; background-color: darkslategray; font-size: 30px; background: url(assets/imgs/ButtonDownFinal.png); background-repeat: no-repeat; background-size: cover;" type="button" (click)="moveDown()"></button></div>
+                  </div>
+                  <div class="row d-flex justify-content-center">
+                    <div class="col-sm-4"><button class="btn btn-danger btn-lg" style="width: 100px; height:100px; font-size: 30px;" type="button" (click)="attack()">Attack</button></div>
+                    <div class="col-sm-4"><button class="btn btn-secondary btn-lg" style="width: 100px; height:100px; font-size: 30px;" type="button" (click)="defend()">Defend</button></div>
+                  </div>
+                </div>
+              </div>  
+             </div>
+           
         </div>
       </div>
     </div>

@@ -10,6 +10,6 @@ export class BrickventureEggComponent {
   easterEggEnabled: boolean = false;
 
   enableEasteregg(){
-    this.easterEggEnabled = true;
+    this.easterEggEnabled = !this.easterEggEnabled;
   }
 }
